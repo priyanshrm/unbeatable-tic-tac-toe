@@ -1,15 +1,26 @@
+body{
+    background: rgb(255, 255, 255);
+}
+.header {
+    /* border: 1px solid black; */
+    margin: 3% 30%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
 .grid {
     /* border: 1px solid black; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin: 5% 30%;
+    margin: 2% 35%;
 }
   
 .box {
-    height: 150px;
+    height: 120px;
     width: 100%;
-    border: 1px solid rgb(224, 224, 224);
+    border: 1px solid rgb(126, 126, 126);
     display: inline-block;
     border-radius: 5px;
     text-align: center;
@@ -18,4 +29,37 @@
 .box--img{
     height: 90%;
     margin: 2%;
+}
+
+.message--container{
+    /* border: 1px solid black; */
+    display: flex;
+    margin: 0% 30%;
+}
+
+.message {
+    /* border: 1px solid black; */
+    margin: auto;
+}
+
+.message--win, .message--tie{
+    /* border: 1px solid black; */
+    font-size: 1.35em;
+    text-align: center;
+    margin: auto;
+    /* padding: 0% 20%; */
+}
+
+.message--btn{
+    /* border: 1px solid black; */
+    font-size: 1.35em;
+    text-align: center;
+    margin: auto;
+    border: 3px black solid;
+    margin-left: 15%;
+    border-radius: 5px;
+    /* background: linear-gradient(to bottom right, #0099ff, #cc33ff); */
+    color: rgb(0, 0, 0);
+    padding: 5px 15px;
+
 }

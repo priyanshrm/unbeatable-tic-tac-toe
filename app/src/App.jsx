@@ -16,11 +16,14 @@ function App() {
   }
 
   return (
+    <>
+    <h1 className="header">Tic-Tac-Toe</h1>
     <Grid 
       userIDs = {[]}
       botIDs = {[]}
       obj = {obj}
     />
+    </>
   )
 }
 
