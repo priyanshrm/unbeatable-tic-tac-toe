@@ -34,7 +34,8 @@ body{
 .message--container{
     /* border: 1px solid black; */
     display: flex;
-    margin: 0% 30%;
+    margin: 3% 30%;
+    height: 50px;
 }
 
 .message {
@@ -47,19 +48,23 @@ body{
     font-size: 1.35em;
     text-align: center;
     margin: auto;
-    /* padding: 0% 20%; */
 }
 
-.message--btn{
+.btn{
     /* border: 1px solid black; */
     font-size: 1.35em;
     text-align: center;
-    margin: auto;
-    border: 3px black solid;
-    margin-left: 15%;
+    border: 0px black solid;
     border-radius: 5px;
-    /* background: linear-gradient(to bottom right, #0099ff, #cc33ff); */
     color: rgb(0, 0, 0);
     padding: 5px 15px;
+}
 
+.bot-btn {
+    margin: 0% 10%;
+    margin-left: 30%;
+}
+
+.restart-btn {
+    margin: 0% 46.5%;
 }

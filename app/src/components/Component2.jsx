@@ -9,6 +9,7 @@ export default function foo(props){
     const [squares, setSquares] = React.useState(boxes)
     const [foundWinner, setFoundWinner] = React.useState(false)
     const [gameTie, setGameTie] = React.useState(false)
+    const [gameStart, setGameStart] = React.useState(false)
     
     let userIDs = props.userIDs
     let botIDs = props.botIDs
@@ -56,7 +57,7 @@ export default function foo(props){
                         setFoundWinner(true)
                     }
                 }
-                if(userIDs.length + botIDs.length == 8){
+                if(userIDs.length + botIDs.length >= 8){
                     setGameTie(true)
                 }
 
@@ -64,12 +65,18 @@ export default function foo(props){
             .catch((error) => console.error(error)) 
     }
 
+    function handleBotFirstMove() {
+        setGameStart(true)
+        botPlay(squares)
+    }
+
     function toggle(id) {
+        if (!gameStart){
+            return
+        }
         if (foundWinner || gameTie){
             return
         }
-
-        // console.log(userIDs, botIDs)
 
         for (let i = 0; i < squares.length; i++) {
             let element = squares[i];
@@ -79,7 +86,6 @@ export default function foo(props){
                 }
             }
         }
-
         botPlay(userPlay(id))
     }
 
@@ -91,6 +97,13 @@ export default function foo(props){
         />
     ))
 
+    function handleRefresh() {
+        window.location.reload();
+    }
+
+    console.log(userIDs, botIDs)
+
+
     return (
         <main>
             <div className="grid">
@@ -100,6 +113,10 @@ export default function foo(props){
                 gameTie={gameTie}
                 foundWinner={foundWinner}
             />
+            
+            {!gameStart && <button className="btn bot-btn" onClick={handleBotFirstMove}>AI Make First Move</button>}
+            {!gameStart && <button className="btn user-btn" onClick={()=>setGameStart(true)}>I Make First Move</button>}
+            {gameStart && <button className="btn restart-btn" onClick={handleRefresh} > Restart</button>}
         </main>
         
     )
