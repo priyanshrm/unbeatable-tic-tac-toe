@@ -30,7 +30,7 @@ export default function foo(props){
     }
 
     function botPlay(newSquares) {
-        fetch("http://localhost:8000/process_data", {
+        fetch("http://13.232.239.195/process_data", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(obj),
