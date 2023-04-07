@@ -66,9 +66,13 @@ export default function foo(props){
     // }
     async function botPlay(newSquares) {
         try {
-          const response = await fetch("http://13.232.108.171/process_data", {
+          const response = await fetch("https://fastapi-server-1.onrender.com/process_data", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { 
+              // "Access-Control-Allow-Headers": "*", // this will allow all CORS requests
+              // "Access-Control-Allow-Methods": 'OPTIONS,POST,GET',
+              "Content-Type": "application/json" 
+            },
             body: JSON.stringify(obj),
           });
           const result = await response.json();
