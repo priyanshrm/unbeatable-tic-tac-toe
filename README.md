@@ -1,4 +1,6 @@
-# Tic-Tac-Toe with AI Bot *https://lambent-donut-63869f.netlify.app/*
+# Tic-Tac-Toe with AI Bot 
+
+*https://lambent-donut-63869f.netlify.app/*
 
 This is a single-player web-based implementation of the classic Tic-Tac-Toe game, built using React.js for the frontend and FastAPI for the backend. The app is deployed on Render and Netlify, respectively.
 
@@ -22,7 +24,7 @@ To play the game, simply visit the app URL on your web browser. The app starts i
 
 Once you start playing, you can click on a cell to make a move. The app will automatically switch turns between the player and the bot and display the game outcome when the game is over.
 
-The app does not allow the user to choose new symbols. The player uses the 'X' symbol and the bot uses the 'O' symbol.
+The app does not allow the user to choose new symbols. The player uses the 'O' symbol and the bot uses the 'X' symbol.
 
 The app also stores the current game state in the browser's local storage, so you can resume the game later if you close the browser window.
 
@@ -36,4 +38,4 @@ This app was developed by Priyansh Raj Mahendra as a personal project to learn m
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the LICENSE.md file for details.
