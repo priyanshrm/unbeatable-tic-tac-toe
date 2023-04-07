@@ -1,6 +1,6 @@
 # Tic-Tac-Toe with AI Bot 
 
-*https://lambent-donut-63869f.netlify.app/*
+*https://remarkable-gumption-7d9326.netlify.app/*
 
 This is a single-player web-based implementation of the classic Tic-Tac-Toe game, built using React.js for the frontend and FastAPI for the backend. The app is deployed on Render and Netlify, respectively.
 
