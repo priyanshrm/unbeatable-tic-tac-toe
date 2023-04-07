@@ -162,6 +162,7 @@ export default function foo(props){
             <Message 
                 gameTie={gameTie}
                 foundWinner={foundWinner}
+                gameStart={gameStart}
             />
             
             {!gameStart && <button className="btn bot-btn" onClick={handleBotFirstMove}>AI Make First Move</button>}
