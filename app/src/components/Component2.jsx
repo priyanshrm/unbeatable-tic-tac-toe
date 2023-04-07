@@ -29,41 +29,84 @@ export default function foo(props){
         return newSquares
     }
 
-    function botPlay(newSquares) {
-        fetch("http://13.232.239.195/process_data", {
+    // function botPlay(newSquares) {
+    //     fetch("http://127.0.0.1:8000/process_data", {
+    //         method: "POST",
+    //         headers: { "Content-Type": "application/json" },
+    //         body: JSON.stringify(obj),
+    //         })
+    //         .then((response) => response.json())
+    //         .then((result) => {
+    //             let newSquares2 = []
+    //             for (let i = 0; i < newSquares.length; i++) {
+    //                 let square = {...newSquares[i]}
+    //                 if (square.id === result.ideal_move) {
+    //                     square = {...square, url:bot}
+    //                     obj[result.ideal_move.toString()] = "b"
+    //                     botIDs.push(result.ideal_move)
+    //                 }
+    //                 newSquares2.push(square)
+    //             }
+    //             setSquares(newSquares2)
+    //             let combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], 
+    //             [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+    //             for (let i = 0; i < combinations.length; i++) {
+    //                 let c = combinations[i];
+    //                 let commonElements = botIDs.filter(element => c.includes(element));
+    //                 if (commonElements.length === 3) {
+    //                     setFoundWinner(true)
+    //                 }
+    //             }
+    //             if(userIDs.length + botIDs.length >= 8){
+    //                 setGameTie(true)
+    //             }
+
+    //         })
+    //         .catch((error) => console.error(error)) 
+    // }
+    async function botPlay(newSquares) {
+        try {
+          const response = await fetch("http://13.232.108.171/process_data", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(obj),
-            })
-            .then((response) => response.json())
-            .then((result) => {
-                let newSquares2 = []
-                for (let i = 0; i < newSquares.length; i++) {
-                    let square = {...newSquares[i]}
-                    if (square.id === result.ideal_move) {
-                        square = {...square, url:bot}
-                        obj[result.ideal_move.toString()] = "b"
-                        botIDs.push(result.ideal_move)
-                    }
-                    newSquares2.push(square)
-                }
-                setSquares(newSquares2)
-                let combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], 
-                [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
-                for (let i = 0; i < combinations.length; i++) {
-                    let c = combinations[i];
-                    let commonElements = botIDs.filter(element => c.includes(element));
-                    if (commonElements.length === 3) {
-                        setFoundWinner(true)
-                    }
-                }
-                if(userIDs.length + botIDs.length >= 8){
-                    setGameTie(true)
-                }
-
-            })
-            .catch((error) => console.error(error)) 
-    }
+          });
+          const result = await response.json();
+          let newSquares2 = [];
+          for (let i = 0; i < newSquares.length; i++) {
+            let square = { ...newSquares[i] };
+            if (square.id === result.ideal_move) {
+              square = { ...square, url: bot };
+              obj[result.ideal_move.toString()] = "b";
+              botIDs.push(result.ideal_move);
+            }
+            newSquares2.push(square);
+          }
+          setSquares(newSquares2);
+          let combinations = [      [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+          ];
+          for (let i = 0; i < combinations.length; i++) {
+            let c = combinations[i];
+            let commonElements = botIDs.filter((element) => c.includes(element));
+            if (commonElements.length === 3) {
+              setFoundWinner(true);
+            }
+          }
+          if (userIDs.length + botIDs.length >= 8) {
+            setGameTie(true);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      
 
     function handleBotFirstMove() {
         setGameStart(true)
@@ -74,7 +117,10 @@ export default function foo(props){
         if (!gameStart){
             return
         }
-        if (foundWinner || gameTie){
+        if (foundWinner){
+            return
+        }
+        if (gameTie){
             return
         }
 

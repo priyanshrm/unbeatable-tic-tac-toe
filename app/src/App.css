@@ -41,13 +41,17 @@ body{
 .message {
     /* border: 1px solid black; */
     margin: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 1%;
+    border-radius: 5px;
 }
 
 .message--win, .message--tie{
     /* border: 1px solid black; */
-    font-size: 1.35em;
+    font-size: 1.65em;
     text-align: center;
     margin: auto;
+    color: rgb(0, 0, 0);
 }
 
 .btn{

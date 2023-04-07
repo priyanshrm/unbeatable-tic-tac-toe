@@ -7,7 +7,7 @@ export default function foo(props){
         <div className="message--container">
             <div className="message">
                 {props.foundWinner  && <p className="message--win">AI Bot wins!</p>} 
-                {props.gameTie && <p className="message--tie">Game tied!</p>}  
+                {!props.foundWinner && props.gameTie && <p className="message--tie">Game tied!</p>}  
             </div>
         </div>
         
